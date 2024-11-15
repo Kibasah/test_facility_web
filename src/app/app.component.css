@@ -1,0 +1,16 @@
+
+
+
+.main-content.blurred {
+    filter: blur(5px);  /* Apply a blur effect to the background */
+    pointer-events: none;  /* Disable interaction with the blurred background */
+  }
+  
+  .app-login {
+    position: fixed;  /* Make the login form appear above the content */
+    top: 50%;  /* Center the form vertically */
+    left: 50%;  /* Center the form horizontally */
+    transform: translate(-50%, -50%);  /* Adjust the position */
+    z-index: 1000;  /* Ensure the form appears above other content */
+  }
+  

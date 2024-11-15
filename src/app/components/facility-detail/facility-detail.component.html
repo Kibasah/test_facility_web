@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+
+<div class="facility-detail-container">
+  
+  <div class="section-3-top">
+    <div class="section-3-left">
+      <!-- Big Image Section -->
+      <div class="big-image-container">
+        <img [src]="selectedImage" alt="{{ facility.name }}" class="big-image" />
+      </div>
+  
+      <!-- Small Image Thumbnails Section -->
+      <div class="thumbnails-container">
+        <div 
+          *ngFor="let image of facility.images" 
+          class="thumbnail"
+          (click)="setSelectedImage(image)">
+          <img [src]="image" alt="{{ facility.name }}" class="thumbnail-image" />
+        </div>
+      </div>
+    </div>
+
+    <div class="section-3-right">
+
+      <div class="card">
+        
+      <div>
+        <h1>{{ facility.name }}</h1>
+      </div>
+      <div>
+        <p>Status: <span [ngClass]="{'available': facility.available, 'unavailable': !facility.available}">
+          {{ facility.available ? 'Available' : 'Unavailable' }}</span>
+        </p>
+      </div>
+      
+        <div>
+          <div class="select" (click)="toggleDropdown()">
+            <div class="selected">
+              <span>{{ selectedOption || 'Select a timeslot' }}</span>
+              <svg class="arrow" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                <path
+                  d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z">
+                </path>
+              </svg>
+            </div>
+            <div class="options" [class.show]="isOpen">
+              <div *ngFor="let timeslot of timeslots">
+                <input
+                  [id]="timeslot"
+                  name="timeslot"
+                  type="radio"
+                  (change)="selectOption(timeslot)"
+                />
+                <label class="option" [for]="timeslot" [innerText]="timeslot"></label>
+              </div>
+            </div>
+          </div>
+          
+          
+        </div>
+        <div>
+          <ul></ul>
+          <p>{{ facility.description }}</p>
+        </div>
+        <button (click)="bookFacility()">Book Now</button>
+        
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-3-bottom">
+    
+  </div>
+</div>

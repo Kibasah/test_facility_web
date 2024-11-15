@@ -1,0 +1,241 @@
+h1 {
+
+    padding-left: 30px;
+    padding-top: 20px;
+
+}
+
+p {
+    padding-left: 30px;
+    padding-bottom: 30px;
+    
+}
+
+.facility-detail-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    padding-top: 100px;
+}
+
+.section-3-top {
+    display: flex;
+    justify-content: space-between; 
+    margin-bottom: 20px;
+}
+
+.section-3-left, .section-3-right { 
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.big-image-container {
+    width: 80%; 
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.big-image {
+width: 100%;
+max-height: 500px; /* Adjust the max height of the big image */
+object-fit: cover;
+border-radius: 10px; /* Optional for rounded corners */
+}
+
+.thumbnails-container {
+display: flex;
+justify-content: center;
+gap: 10px;
+flex-wrap: wrap;
+}
+
+.thumbnail {
+width: 70px;  /* Adjust the size of thumbnails */
+height: 70px;
+cursor: pointer;
+transition: transform 0.3s ease;
+border-radius: 5px;
+overflow: hidden;
+}
+
+.thumbnail-image {
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: 5px;
+}
+
+.thumbnail:hover {
+transform: scale(1.1);  /* Zoom effect on hover */
+}
+
+.section-3-right {
+flex: 1;  
+padding-left: 40px;  
+}
+
+.facility-image {
+    max-width: 100%;
+    margin: 10px 0;
+    transition: transform 0.3s;
+}
+
+.facility-image:hover {
+transform: scale(1.05);
+}
+
+.available {
+color: green;
+}
+
+.unavailable {
+color: red;
+}
+
+.section-3-bottom {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; 
+}
+  
+button {
+    position: absolute; 
+    bottom: 20px; 
+    right: 20px;  
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+  
+button:hover {
+    background-color: #45a049;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+    margin-top: 20px;
+    border-radius: 30px;
+    background: #e0e0e0;
+    transition: min-height 300ms ease; 
+}
+
+
+/* Dropdown */ 
+
+.select {
+    width: 90%;
+    cursor: pointer;
+    position: relative;
+    transition: 300ms;
+    color: white;
+    overflow: hidden;
+    padding-top: 20px;
+    padding-left: 30px;
+}
+
+.selected {
+background-color: #2a2f3b;
+padding: 5px;
+margin-bottom: 3px;
+border-radius: 5px;
+position: relative;
+z-index: 100000;
+font-size: 15px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.arrow {
+position: relative;
+right: 0px;
+height: 10px;
+transform: rotate(-90deg);
+width: 25px;
+fill: white;
+z-index: 100000;
+transition: 300ms;
+}
+
+.options {
+display: flex;
+flex-direction: column;
+border-radius: 5px;
+padding: 5px;
+background-color: #2a2f3b;
+position: relative;
+top: 0;
+opacity: 0;
+visibility: hidden;
+transition: opacity 300ms, visibility 0s linear 300ms;
+max-height: 0; /* Start with collapsed options */
+overflow: hidden;
+}
+
+.options.show {
+opacity: 1;
+visibility: visible;
+max-height: 500px; /* Adjust based on your content height */
+transition: opacity 300ms, visibility 0s linear 0s, max-height 300ms;
+} 
+
+.select > .selected .arrow {
+transform: rotate(0deg);
+}
+
+.option {
+border-radius: 5px;
+padding: 5px;
+transition: 300ms;
+background-color: #2a2f3b;
+width: 150px;
+font-size: 15px;
+}
+
+.option:hover {
+background-color: #323741;
+}
+
+.options input[type="radio"] {
+display: none;
+}
+
+.options label {
+display: inline-block;
+}
+
+.options label::before {
+content: attr(data-txt);
+}
+
+.options input[type="radio"]:checked + label {
+display: none;
+}
+
+.options input[type="radio"]#all:checked + label {
+display: none;
+}
+
+.select:has(.options input[type="radio"]#all:checked) .selected::before {
+content: attr(data-default);
+}
+
+.select:has(.options input[type="radio"]#option-1:checked) .selected::before {
+content: attr(data-one);
+}
+
+.select:has(.options input[type="radio"]#option-2:checked) .selected::before {
+content: attr(data-two);
+}
+
+.select:has(.options input[type="radio"]#option-3:checked) .selected::before {
+content: attr(data-three);
+}
+  

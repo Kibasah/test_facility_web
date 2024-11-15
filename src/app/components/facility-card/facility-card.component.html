@@ -1,0 +1,33 @@
+
+  <div class="card-container-1">
+    <div class="card-1">
+      <div class="front-content-1">
+        <!-- Top-right text displaying facility name -->
+        <span class="top-right-text">{{ facility.name }}</span>
+        <!-- Main image -->
+        <img [src]="facility.images && facility.images[imageIndex]" alt="{{ facility.name }}" class="image" />
+      </div>
+      <div class="content-1">
+        <span class="heading-1">{{ facility.name }}</span>
+        <span class="text_span">{{ facility.description }}</span>
+
+        
+        <button class="cta" (click)="navigateToFacility()">
+          <span class="hover-underline-animation">Book Now</span>
+          <svg id="arrow-horizontal" xmlns="http://www.w3.org/2000/svg" width="30" height="10" viewBox="0 0 46 16">
+            <path
+              id="Path_10"
+              data-name="Path 10"
+              d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
+              transform="translate(30)"
+            ></path>
+          </svg>
+        </button>
+        
+
+      </div>
+    </div>
+  </div>
+  
+  
+

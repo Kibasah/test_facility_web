@@ -1,0 +1,38 @@
+
+
+
+
+    
+  <app-navbar ngSkipHydration></app-navbar>
+
+
+  <div class = "section-1">
+    
+    <div class="card-container">
+      <div class="card">
+        <img [src]="facilities[0]?.images[imageIndex]" alt="Facility Image" class="facility-image" />
+        <div class="details">
+          <div class="cardHeader">CSS Hover Animation</div>
+          <div class="cardText">
+            Welcome to this card where I have made use of the "Hover" effect to add
+            some really cool interactions to it. Enjoy
+          </div>
+          <div class="button-slide">Learn More</div>
+        </div>
+      </div>
+      
+      
+      <button (click)="previousImage()" class="nav-arrow left-arrow">‹</button>
+      <button (click)="nextImage()" class="nav-arrow right-arrow">›</button>
+    </div>
+    
+  </div>
+
+  <div class = "section-2">
+    <h1 class="section-2-h1">Facilities</h1>
+    <div class="facility-list">
+      <app-facility-card *ngFor="let facility of facilities" [facility]="facility"></app-facility-card>
+    </div>
+  </div>  
+    
+ 
