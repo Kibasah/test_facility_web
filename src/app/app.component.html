@@ -1,8 +1,8 @@
 <!-- Main content area with a blur effect applied when login is visible -->
 <div class="main-content" [class.blurred]="isLoginVisible">
-    <router-outlet></router-outlet>  <!-- This is where the other app content is rendered -->
+    <router-outlet></router-outlet>
   </div>
   
   <!-- The login form is displayed conditionally -->
-  <app-admin-login *ngIf="isLoginVisible"></app-admin-login>  <!-- Conditionally show the LoginComponent -->
+  <app-admin-login *ngIf="isLoginVisible"></app-admin-login>
   

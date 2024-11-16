@@ -1,0 +1,25 @@
+<div class="manage-facilities">
+    <h2>Manage Facilities</h2>
+  
+    <!-- Search Bar -->
+    <div class="search-bar">
+      <input type="text" placeholder="Search facilities..." [(ngModel)]="searchQuery">
+    </div>
+  
+    <!-- Facility List -->
+    <div class="facility-list">
+      <div *ngFor="let facility of filteredFacilities(searchQuery)" class="facility-card">
+        <div class="facility-images">
+          <!-- Loop through the images array and display each image -->
+          <img *ngFor="let img of facility.images" [src]="img" alt="Facility Image" class="facility-img">
+        </div>
+        <div class="facility-info">
+          <h3>{{ facility.name }}</h3>
+          <p>{{ facility.description }}</p>
+          <button (click)="editFacility(facility.id)">Edit</button>
+          <button (click)="deleteFacility(facility.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -49,19 +49,6 @@ h1, h2 {
 
 }
 
-.card-container {
-  width: 1000px;  /* Set desired width */
-  height: 470px;  /* Set desired height */
-  position: relative;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
-  display: flex;  /* Flexbox ensures it centers its content */
-  justify-content: center;  /* Centers horizontally */
-  align-items: center;  /* Centers vertically */
-  background: #f5f5f5;  /* Add a background to see the card container clearly */
-}
-
 /* The card itself should take full size of the container */
 .card {
   width: 100%;
@@ -99,31 +86,54 @@ h1, h2 {
   align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+  cursor: pointer;
 }
 
 .card:hover .details {
   opacity: 1;
 }
 
+.card-container {
+  position: relative; /* Ensure arrows can be positioned relative to the container */
+  width: 1000px; /* Set desired width */
+  height: 470px; /* Set desired height */
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* Center content */
+  align-items: center; /* Center content */
+  background: #f5f5f5; /* Add a background to make the container visible */
+}
+
+/* Common arrow styles */
 .nav-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 24px;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+  position: absolute; /* Position relative to .card-container */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust vertical alignment */
+  font-size: 24px; /* Adjust size */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white; /* Arrow color */
   border: none;
   padding: 8px;
   cursor: pointer;
   z-index: 10;
+  border-radius: 50%; /* Optional: Make arrows circular */
+  width: 40px; /* Optional: Set width for circular style */
+  height: 40px; /* Optional: Set height for circular style */
+  display: flex; /* Align content inside */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
 }
 
+/* Left arrow position */
 .left-arrow {
-  left: -40px; /* Position to the left of the card */
+  left: 10px; /* Position on the left edge of the container */
 }
 
+/* Right arrow position */
 .right-arrow {
-  right: -40px; /* Position to the right of the card */
+  right: 10px; /* Position on the right edge of the container */
 }
   
 

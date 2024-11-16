@@ -3,36 +3,51 @@
 <div class="facility-detail-container">
   
   <div class="section-3-top">
-    <div class="section-3-left">
-      <!-- Big Image Section -->
+    <div class="section-3-left" *ngIf="facility">
+
       <div class="big-image-container">
         <img [src]="selectedImage" alt="{{ facility.name }}" class="big-image" />
       </div>
-  
-      <!-- Small Image Thumbnails Section -->
+    
       <div class="thumbnails-container">
-        <div 
-          *ngFor="let image of facility.images" 
+        <div
+          *ngFor="let image of facility.images"
           class="thumbnail"
-          (click)="setSelectedImage(image)">
+          (click)="setSelectedImage(image)"
+        >
           <img [src]="image" alt="{{ facility.name }}" class="thumbnail-image" />
         </div>
       </div>
     </div>
 
-    <div class="section-3-right">
-
+    <div class="section-3-right" *ngIf="facility">
       <div class="card">
-        
-      <div>
-        <h1>{{ facility.name }}</h1>
-      </div>
-      <div>
-        <p>Status: <span [ngClass]="{'available': facility.available, 'unavailable': !facility.available}">
-          {{ facility.available ? 'Available' : 'Unavailable' }}</span>
-        </p>
-      </div>
-      
+        <div>
+          <h1>{{ facility.name }}</h1>
+        </div>
+        <div>
+          <p>Status: 
+            <span [ngClass]="{'available': facility.available, 'unavailable': !facility.available}">
+              {{ facility.available ? 'Available' : 'Unavailable' }}
+            </span>
+          </p>
+        </div>
+
+        <div>
+          <div class="date-picker-container">
+            <label for="datePicker" class="date-label">Select Date:</label>
+            <input
+              id="datePicker"
+              type="date"
+              [(ngModel)]="selectedDate"
+              required
+              class="date-input"
+            />
+          </div>
+          
+          
+        </div>
+
         <div>
           <div class="select" (click)="toggleDropdown()">
             <div class="selected">
@@ -55,18 +70,16 @@
               </div>
             </div>
           </div>
-          
-          
         </div>
+
         <div>
           <ul></ul>
           <p>{{ facility.description }}</p>
         </div>
         <button (click)="bookFacility()">Book Now</button>
-        
       </div>
-
     </div>
+
   </div>
 
   <div class="section-3-bottom">

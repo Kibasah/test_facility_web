@@ -8,26 +8,31 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class LoginService {
 
-  private apiUrl = 'assets/dummy.json';  // Path to your dummy data file
-  private loginVisibleSubject = new BehaviorSubject<boolean>(false); // Initial visibility is false
-  loginVisible$ = this.loginVisibleSubject.asObservable(); // Observable to share visibility state
+  private apiUrl = 'assets/dummy.json'; 
+  private loginVisibleSubject = new BehaviorSubject<boolean>(false); 
+  loginVisible$ = this.loginVisibleSubject.asObservable(); 
+  private currentUserSubject = new BehaviorSubject<any>(null);
+  currentUser$ = this.currentUserSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
-  // Login method to verify username and password against dummy data
   login(username: string, password: string): Observable<any> {
+
     return this.http.get<any>(this.apiUrl).pipe(
       map((data) => {
-        // Find user in dummy data based on username and password
+
         const user = data.user.find(
           (user: { username: string; password: string }) =>
             user.username === username && user.password === password
         );
 
         if (user) {
-          return { success: true, user };  // Successful login
+
+          this.currentUserSubject.next(user);
+          return { success: true, user };
         } else {
-          throw new Error('Invalid username or password');  // Invalid login
+
+          throw new Error('Invalid username or password');
         }
       }),
       catchError((err) => {
@@ -36,12 +41,14 @@ export class LoginService {
     );
   }
 
-  // Method to show login form
+  logout(): void {
+    this.currentUserSubject.next(null);
+  }
+
   showLogin(): void {
     this.loginVisibleSubject.next(true);
   }
 
-  // Method to hide login form
   hideLogin(): void {
     this.loginVisibleSubject.next(false);
   }

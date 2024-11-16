@@ -11,6 +11,42 @@ p {
     
 }
 
+.date-picker-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+  
+.date-label {
+    font-weight: 600;
+    color: #333;
+}
+
+.date-input {
+    color: white;
+    padding: 6px;
+    font-size: 16px;
+    width: 88.4%;
+    background-color: #2a2f3b;
+    border: 1px solid #2a2f3b;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.date-input:focus {
+    border-color: #007bff;
+}
+
+.date-input::-webkit-calendar-picker-indicator {
+background-color: white;
+filter: invert(1); 
+}
+
 .facility-detail-container {
     font-family: Arial, sans-serif;
     padding: 20px;
@@ -126,6 +162,16 @@ button:hover {
     transition: min-height 300ms ease; 
 }
 
+.mat-dialog-container {
+    transform: translateX(-50%) !important; /* Centers horizontally */
+  }
+
+  .blurred-backdrop {
+    backdrop-filter: blur(5px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(5px); /* For Safari */
+    background-color: rgba(0, 0, 0, 0.5); /* Optional: semi-transparent background */
+  }
+  
 
 /* Dropdown */ 
 
@@ -165,25 +211,25 @@ transition: 300ms;
 }
 
 .options {
-display: flex;
-flex-direction: column;
-border-radius: 5px;
-padding: 5px;
-background-color: #2a2f3b;
-position: relative;
-top: 0;
-opacity: 0;
-visibility: hidden;
-transition: opacity 300ms, visibility 0s linear 300ms;
-max-height: 0; /* Start with collapsed options */
-overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #2a2f3b;
+    position: relative;
+    top: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 300ms, visibility 0s linear 300ms;
+    max-height: 0; 
+    overflow: hidden;
 }
 
 .options.show {
-opacity: 1;
-visibility: visible;
-max-height: 500px; /* Adjust based on your content height */
-transition: opacity 300ms, visibility 0s linear 0s, max-height 300ms;
+    opacity: 1;
+    visibility: visible;
+    max-height: 500px; 
+    transition: opacity 300ms, visibility 0s linear 0s, max-height 300ms;
 } 
 
 .select > .selected .arrow {
@@ -191,12 +237,12 @@ transform: rotate(0deg);
 }
 
 .option {
-border-radius: 5px;
-padding: 5px;
-transition: 300ms;
-background-color: #2a2f3b;
-width: 150px;
-font-size: 15px;
+    border-radius: 5px;
+    padding: 5px;
+    transition: 300ms;
+    background-color: #2a2f3b;
+    width: 100%;
+    font-size: 15px;
 }
 
 .option:hover {
@@ -204,7 +250,7 @@ background-color: #323741;
 }
 
 .options input[type="radio"] {
-display: none;
+    display: none;
 }
 
 .options label {
@@ -239,3 +285,10 @@ content: attr(data-two);
 content: attr(data-three);
 }
   
+
+@media (max-width: 600px) {
+    .date-picker-container {
+      width: 100%;
+      max-width: 100%;
+    }
+  }

@@ -1,1 +1,16 @@
-<p>booking works!</p>
+<div class="booking-confirmation">
+    <h2 class="confirmation-title">Booking Confirmation</h2>
+
+    <div class="confirmation-details">
+        <p><strong>Facility Name:</strong> {{ data.facilityName }}</p>
+        <p><strong>Username:</strong> {{ data.username }}</p>
+        <p><strong>Date:</strong> {{ data.date }}</p>
+        <p><strong>Timeslot:</strong> {{ data.timeslot }}</p>
+    </div>
+
+    <div class="confirmation-actions">
+        <button class="confirm-btn" (click)="onConfirm()">Confirm</button>
+        <button class="cancel-btn" (click)="onCancel()">Cancel</button>
+    </div>
+</div>
+  

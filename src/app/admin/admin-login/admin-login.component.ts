@@ -1,7 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LoginService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-admin-login',
@@ -10,23 +12,42 @@ import { FormsModule } from '@angular/forms';
   imports: [CommonModule, FormsModule], 
   standalone: true,
 })
-export class LoginComponent {
-  @Input() isLoginVisible: boolean = false;  // Receive the login visibility from the parent component
+export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
   errorMessage: string = '';
+  returnUrl: string = '/'; 
 
-  constructor(private loginService: LoginService) {}
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private route: ActivatedRoute,  
+    private location: Location  
+  ) {}
 
-  // This method is called when the user submits the form
+  ngOnInit(): void {
+    
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+  }
+
   onSubmit(): void {
+    console.log('Login form submitted');
     if (this.username && this.password) {
       this.loginService.login(this.username, this.password).subscribe({
         next: (response) => {
           if (response.success) {
             console.log('Login successful');
-            this.errorMessage = '';  // Clear any previous error message
-            // Perform additional actions, like navigating to a new page or storing the user session
+            this.errorMessage = '';  
+
+            const user = response.user;  
+
+            if (user.category === 1) {
+              // If the user is an admin, navigate to the admin panel
+              this.router.navigate(['admin/panel']);  
+            } else if (user.category === 2) {
+              // If the user is a regular user, 
+              this.location.back();  
+            }
           } else {
             this.errorMessage = response.message;  // Set the error message if login failed
           }
@@ -40,4 +61,11 @@ export class LoginComponent {
       this.errorMessage = 'Please enter both username and password';
     }
   }
+
+  onBack() {
+    
+    this.location.back();
+    
+  }
 }
+

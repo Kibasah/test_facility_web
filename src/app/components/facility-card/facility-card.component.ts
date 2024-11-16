@@ -32,8 +32,7 @@ export class FacilityCardComponent {
   }
 
   navigateToFacility() {
-    console.log('Button clicked!');
-    console.log('Facility:', this.facility);
+    
     if (this.facility && this.facility.id) {
       this.router.navigate(['/facility', this.facility.id]);
     } else {

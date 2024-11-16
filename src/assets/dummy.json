@@ -5,16 +5,18 @@
     { "id": 3, "name": "Court", "description": "Open space for variety of activities", "available": true, "img": 3 },
     { "id": 4, "name": "Squash court", "description": "Squash court for training", "available": true, "img": 4 }
   ],
+
   "slots": [
-    { "facilityId": 1, "timeSlots": ["9:00 AM - 10:00 AM", "10:00 AM - 11:00 AM"] },
-    { "facilityId": 2, "timeSlots": ["2:00 PM - 3:00 PM", "3:00 PM - 4:00 PM"] },
-    { "facilityId": 3, "timeSlots": ["4:00 PM - 6:00 PM", "6:00 PM - 8:00 PM"] }
+    { "facilityId": 1, "timeSlots": ["8:00 AM - 10:00 AM", "10:00 AM - 12:00 PM", "2:00 PM - 4:00 PM", "4:00 PM - 6:00 PM", "6:00 PM - 8:00 PM", "8:00 PM - 10:00 PM", "10:00 PM - 12:00 PM"] },
+    { "facilityId": 2, "timeSlots": ["8:00 AM - 10:00 AM", "10:00 AM - 12:00 PM", "2:00 PM - 4:00 PM", "4:00 PM - 6:00 PM", "6:00 PM - 8:00 PM", "8:00 PM - 10:00 PM", "10:00 PM - 12:00 PM"] },
+    { "facilityId": 3, "timeSlots": ["8:00 AM - 10:00 AM", "10:00 AM - 12:00 PM", "2:00 PM - 4:00 PM", "4:00 PM - 6:00 PM", "6:00 PM - 8:00 PM", "8:00 PM - 10:00 PM", "10:00 PM - 12:00 PM"] },
+    { "facilityId": 4, "timeSlots": ["8:00 AM - 10:00 AM", "10:00 AM - 12:00 PM", "2:00 PM - 4:00 PM", "4:00 PM - 6:00 PM", "6:00 PM - 8:00 PM", "8:00 PM - 10:00 PM", "10:00 PM - 12:00 PM"] }
   ],
 
   "user": [
 
     { "userId": 1, "username": "admin", "password": "password123", "category": 1},
-    { "userId": 1, "username": "user", "password": "password123", "category": 1}
+    { "userId": 2, "username": "user", "password": "password123", "category": 2}
 
   ]
   

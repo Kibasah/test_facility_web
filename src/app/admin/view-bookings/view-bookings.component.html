@@ -1,0 +1,16 @@
+
+
+
+<div class="view-bookings">
+    <h2>View Bookings</h2>
+  
+    <div class="booking-list">
+      <div *ngFor="let booking of bookings" class="booking-card">
+        <h3>{{ booking.username }}</h3>
+        <p>Facility: {{ booking.facilityName }}</p>
+        <p>Date: {{ booking.date }}</p>
+        <p>Timeslot: {{ booking.timeslot }}</p>
+      </div>
+    </div>
+  </div>
+  

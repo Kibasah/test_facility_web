@@ -157,6 +157,7 @@
   .submenu .submenu-item {
     width: 100%;
     transition: all 0.48s cubic-bezier(0.23, 1, 0.32, 1);
+    cursor: pointer
   }
   
   .submenu .submenu-link {
@@ -170,6 +171,7 @@
   
   .submenu .submenu-item:last-child .submenu-link {
     border-bottom: none;
+    cursor: pointer
   }
   
   .submenu .submenu-link::before {

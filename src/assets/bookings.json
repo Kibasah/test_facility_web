@@ -1,0 +1,41 @@
+{
+    "bookings": [
+      {
+        "username": "john_doe",
+        "facilityId": 1,
+        "date": "2024-11-20",
+        "timeslot": "10:00 AM - 12:00 PM"
+      },
+      {
+        "username": "jane_smith",
+        "facilityId": 2,
+        "date": "2024-11-21",
+        "timeslot": "2:00 PM - 4:00 PM"
+      },
+      {
+        "username": "mark_jones",
+        "facilityId": 1,
+        "date": "2024-11-22",
+        "timeslot": "9:00 AM - 11:00 AM"
+      },
+      {
+        "username": "lucy_brown",
+        "facilityId": 3,
+        "date": "2024-11-23",
+        "timeslot": "3:00 PM - 5:00 PM"
+      },
+      {
+        "username": "emily_clark",
+        "facilityId": 2,
+        "date": "2024-11-24",
+        "timeslot": "12:00 PM - 2:00 PM"
+      },
+      {
+        "username": "david_lee",
+        "facilityId": 4,
+        "date": "2024-11-25",
+        "timeslot": "1:00 PM - 3:00 PM"
+      }
+    ]
+  }
+  

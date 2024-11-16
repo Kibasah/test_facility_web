@@ -32,7 +32,7 @@ export class FacilityService {
 
     const imageFiles = [];
     let i = 1;
-    const maxImages = 5;  
+    const maxImages = 3;  
 
     while (i <= maxImages) {
       const imagePath = `assets/images/${imgId}_img${i}.jpg`;

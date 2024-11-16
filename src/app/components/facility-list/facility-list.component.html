@@ -10,13 +10,8 @@
     
     <div class="card-container">
       <div class="card">
-        <img [src]="facilities[0]?.images[imageIndex]" alt="Facility Image" class="facility-image" />
-        <div class="details">
-          <div class="cardHeader">CSS Hover Animation</div>
-          <div class="cardText">
-            Welcome to this card where I have made use of the "Hover" effect to add
-            some really cool interactions to it. Enjoy
-          </div>
+        <img [src]="getCurrentImage()" alt="Facility Image" class="facility-image" />
+        <div class="details"> 
           <div class="button-slide">Learn More</div>
         </div>
       </div>
